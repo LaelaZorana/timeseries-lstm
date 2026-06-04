@@ -1,11 +1,11 @@
 # timeseries-lstm
 
-**🔗 Live demo:** [try it on Hugging Face Spaces](https://huggingface.co/spaces/LaelaZ/timeseries-lstm) — pick a scenario, dial the sensitivity, watch the LSTM flag anomalies.
+**🔗 Live demo:** [try it on Hugging Face Spaces](https://huggingface.co/spaces/LaelaZ/timeseries-lstm). Pick a scenario, dial the sensitivity, and watch the LSTM flag anomalies.
 
 An LSTM that **forecasts** a daily risk/operations metric and **detects anomalies** when the
 real value drifts too far from the forecast. It is the time-series piece of my portfolio, and
-it bridges a risk-monitoring background to deep learning: model the expected behaviour, alert
-on deviation. As with the rest of my work, I ship the model *and* the evidence it works.
+it bridges a risk-monitoring background to deep learning: model the expected behaviour, then alert
+on deviation. As with the rest of my work, I publish the model *and* the evidence it works.
 
 ## I built it and I verified it
 
@@ -20,8 +20,8 @@ naive RMSE: 28.44   (predict today = yesterday)
 improvement over naive: 83.4%
 ```
 
-The baseline collapses on the weekly seasonality; the LSTM learns it. A forecaster that cannot
-beat "tomorrow looks like today" is not worth shipping, so that is the bar.
+The baseline collapses on the weekly seasonality, but the LSTM learns it. A forecaster that cannot
+beat "tomorrow looks like today" is not worth releasing, so that is the bar.
 
 **2. Anomaly detection.** Precision / recall / F1 against injected, labelled anomalies, by scenario
 (z-score threshold 3.0):
@@ -34,9 +34,9 @@ crash        0.86   0.33   0.48
 ```
 
 Sharp spikes (think fraud bursts) are caught cleanly. Sustained **regime shifts are harder** for
-forecast-error detection: once the level shifts, the LSTM adapts within its window and stops
-flagging, so only the onset trips it. The demo shows this honestly rather than hiding it. It is a
-real property of the method, and naming it is part of the point.
+forecast-error detection, because once the level shifts the LSTM adapts within its window and stops
+flagging, so only the onset trips it. The demo shows this honestly rather than hiding it, since it
+is a real property of the method and naming it is part of the point.
 
 ## Why this repo is more than "it forecasts"
 
