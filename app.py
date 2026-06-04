@@ -4,7 +4,7 @@ Gradio demo for the LSTM time-series forecaster + anomaly detector.
 Bespoke UI (the portfolio's design language, not the stock template): a hand-built SVG
 chart draws the metric, the LSTM forecast, and the flagged anomalies; metric cards report
 detection precision/recall/F1 live; a scenario picker and a sensitivity slider drive it.
-Inference runs the real package (timeseries/) with the shipped trained weights.
+Inference runs the real package (timeseries/) with the bundled trained weights.
 
 Run locally:   pip install -r requirements.txt && python app.py
 On Hugging Face Spaces this file is the entry point (app_file: app.py).
